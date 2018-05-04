@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rLayout"
+    android:background="@drawable/plant"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="150dp"
+        android:text="Temperature"
+        android:textColor="@color/textColorDark"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/TempValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="58dp"
+        android:layout_below="@id/temperature"
+        android:textColor="@color/textColorDark"
+        android:text="20\u2103"
+        android:textSize="60sp"/>
+
+    <TextView
+        android:id="@+id/moisture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/temperature"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/textColorDark"
+        android:layout_marginEnd="60dp"
+        android:text="Moisture"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/MoistValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/moisture"
+        android:layout_alignTop="@+id/TempValue"
+        android:textColor="@color/textColorDark"
+        android:text="60%"
+        android:textSize="60sp" />
+
+
+    <TextView
+        android:id="@+id/suggestion"
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TempValue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/textColorDark"
+        android:text="You can set temperature to 25\u2103 and moisture to 90%"
+        android:textSize="25sp" />
+
+
+
+    <Switch
+        android:id="@+id/SwitchModeTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_alignTop="@id/LabelControlTemp"
+        />
+
+    <TextView
+        android:id="@+id/LabelControlTemp"
+        android:textColor="@color/textColorDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/suggestion"
+        android:text="Control Bulb Status"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/PromptControlTemp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/LabelControlTemp"
+        android:layout_below="@id/LabelControlTemp"
+        android:text="Switch bulb on for "
+        android:textColor="@color/textColorDark"
+        android:textSize="15sp" />
+
+    <SeekBar
+        android:id="@+id/TempSlider"
+        android:layout_width="141dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LabelControlTemp"
+        android:layout_toEndOf="@id/PromptControlTemp"
+        android:layout_marginStart="20dp"
+        android:textSize="50sp"
+        android:max="30"/>
+
+    <TextView
+        android:id="@+id/SeekValueTemp"
+        android:textColor="@color/textColorDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/SwitchModeTemp"
+        android:layout_alignTop="@id/TempSlider"
+        android:text="0 mins"
+        android:background="@color/lightBackground"
+        android:textSize="15sp" />
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/LabelControlWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/PromptControlTemp"
+        android:textColor="@color/textColorDark"
+        android:text="Control Water Status"
+        android:textSize="25sp" />
+    <Switch
+        android:id="@+id/SwitchModeWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_alignTop="@id/LabelControlWater"
+        />
+
+    <TextView
+        android:id="@+id/PromptControlWater"
+        android:textColor="@color/textColorDark"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LabelControlWater"
+        android:layout_alignStart="@id/LabelControlWater"
+        android:text="Switch water on for "
+        android:textSize="15sp" />
+
+    <SeekBar
+        android:id="@+id/WaterSlider"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LabelControlWater"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/PromptControlTemp"
+        android:textSize="50sp"
+        android:max="100"/>
+
+    <TextView
+        android:id="@+id/SeekValueWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorDark"
+        android:layout_alignEnd="@id/SwitchModeWater"
+        android:layout_alignTop="@id/WaterSlider"
+        android:text="0 secs"
+        android:background="@color/lightBackground"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/POST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SET"
+        android:layout_marginTop="520dp"
+        android:layout_marginLeft="140dp"
+        android:textSize="20sp"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "1077677616399",
+    "firebase_url": "https://iotbased404.firebaseio.com",
+    "project_id": "iotbased404",
+    "storage_bucket": "iotbased404.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077677616399:android:650db53ad06d393e",
+        "android_client_info": {
+          "package_name": "com.example.mushfiq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077677616399-k1enm66huodl3lbk5tr6du0hf4etmoqs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG_cVbVvAvsRy7F3gvSy_1HrPOL2rNA9I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077677616399:android:bf370ff474420d40",
+        "android_client_info": {
+          "package_name": "com.example.mushfiq.igarden"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077677616399-4ijpbq8lgq7p9hmqlgquv56m9hmrb1jt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mushfiq.igarden",
+            "certificate_hash": "36a083afe48ca2b5f8e425da4110e6c422fa0725"
+          }
+        },
+        {
+          "client_id": "1077677616399-k1enm66huodl3lbk5tr6du0hf4etmoqs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG_cVbVvAvsRy7F3gvSy_1HrPOL2rNA9I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077677616399-k1enm66huodl3lbk5tr6du0hf4etmoqs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
