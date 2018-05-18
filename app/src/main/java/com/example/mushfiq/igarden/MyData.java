@@ -8,18 +8,20 @@ public class MyData {
     private int waterValue;
     private int moist;
     private int temp;
+    private int humidity;
     private String lastUpdated;
 
     public MyData() {
     }
 
-    public MyData(int lightMode, int lightValue, int waterMode, int waterValue, int moist, int temp, String lastUpdated) {
+    public MyData(int lightMode, int lightValue, int waterMode, int waterValue, int moist, int temp, int humidity, String lastUpdated) {
         this.lightMode = lightMode;
         this.lightValue = lightValue;
         this.waterMode = waterMode;
         this.waterValue = waterValue;
         this.moist = moist;
         this.temp = temp;
+        this.humidity=humidity;
         this.lastUpdated = lastUpdated;
     }
 
@@ -70,6 +72,10 @@ public class MyData {
     public void setTemp(int temp) {
         this.temp = temp;
     }
+
+    public int getHumidity() {return humidity;}
+
+    public void setHumidity(int humidity) { this.humidity = humidity;}
 
     public String getLastUpdated() {
         return lastUpdated;

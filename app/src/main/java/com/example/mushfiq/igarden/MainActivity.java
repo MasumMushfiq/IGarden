@@ -28,12 +28,13 @@ public class MainActivity extends AppCompatActivity {
         final TextView moistValue = findViewById(R.id.MoistValue);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("Mushfiq");
+        final DatabaseReference QueryRef = database.getReference("sadiq/sensors");
+        final DatabaseReference UpdateRef = database.getReference("sadiq/command");
 
-        myRef.addValueEventListener(new ValueEventListener() {
+        QueryRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                MyData data = dataSnapshot.getValue(MyData.class);
+                QueryData data = dataSnapshot.getValue(QueryData.class);
                 tempValue.setText(data.getTemp() + "\u2103");
                 moistValue.setText(data.getMoist() + "%");
             }
@@ -128,12 +129,10 @@ public class MainActivity extends AppCompatActivity {
                 int tempMode = TempSwitch.isChecked() ? 1 : 0;
                 int waterMode = WaterSwitch.isChecked() ? 1 : 0;
 
-                myRef.child("lightMode").setValue(tempMode);
-                myRef.child("lightValue").setValue(tempVal);
-                myRef.child("waterMode").setValue(waterMode);
-                myRef.child("waterValue").setValue(moistVal);
-
-
+                UpdateRef.child("lightMode").setValue(tempMode);
+                UpdateRef.child("lightValue").setValue(tempVal);
+                UpdateRef.child("waterMode").setValue(waterMode);
+                UpdateRef.child("waterValue").setValue(moistVal);
             }
         });
     }

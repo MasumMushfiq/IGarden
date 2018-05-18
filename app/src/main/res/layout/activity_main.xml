@@ -7,6 +7,8 @@
     android:background="@drawable/plant"
     tools:context=".MainActivity">
 
+
+
     <TextView
         android:id="@+id/temperature"
         android:layout_width="wrap_content"
