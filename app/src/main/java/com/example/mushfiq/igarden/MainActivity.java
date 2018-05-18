@@ -1,6 +1,9 @@
 package com.example.mushfiq.igarden;
 
+import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -17,8 +20,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+import java.util.Date;
+
 
 public class MainActivity extends AppCompatActivity {
+    private Date LastUpdated;
+    Boolean DataUpdated = false;
+    Handler mHandler = new Handler();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +36,43 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final TextView tempValue = findViewById(R.id.TempValue);
         final TextView moistValue = findViewById(R.id.MoistValue);
+        final TextView humidityValue = findViewById(R.id.HumidityValue);
+        final TextView suggestionBox = findViewById(R.id.suggestion);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference QueryRef = database.getReference("sadiq/sensors");
         final DatabaseReference UpdateRef = database.getReference("sadiq/command");
+
+        final String Message1="Suggested Temperature :  25\u2103";
+        final String Message2="Temperature Level is Good";
+        final String Message3="Suggested Moisture :  70%";
+        final String Message4="Moisture Level is Good";
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(true) {
+                    try {
+                        Thread.sleep(10000);
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Date Now = Calendar.getInstance().getTime();
+                                if(!DataUpdated);
+                                else if(Now.getTime() - LastUpdated.getTime() < 5*60*1000);
+                                else{
+                                    String Suggestion="           Connection Lost\n   Please check your device";
+                                    suggestionBox.setText(Suggestion);
+                                    suggestionBox.setTextColor(Color.RED);
+                                    suggestionBox.setTextSize(25);
+                                }
+                            }
+                        });
+                    } catch (Exception e) {}
+                }
+            }
+        }).start();
 
         QueryRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -37,6 +80,16 @@ public class MainActivity extends AppCompatActivity {
                 QueryData data = dataSnapshot.getValue(QueryData.class);
                 tempValue.setText(data.getTemp() + "\u2103");
                 moistValue.setText(data.getMoist() + "%");
+                humidityValue.setText(data.getHumidity() + "%");
+                LastUpdated = Calendar.getInstance().getTime();
+                DataUpdated = true;
+
+
+                String Suggestion="";
+                if(data.getTemp()< 25) Suggestion+=Message1; else Suggestion+=Message2;
+                Suggestion+="\n ";
+                if(data.getMoist()<70) Suggestion+=Message3; else Suggestion+=Message4;
+                suggestionBox.setText(Suggestion);
             }
 
             @Override

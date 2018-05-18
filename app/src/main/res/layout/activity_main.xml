@@ -7,6 +7,29 @@
     android:background="@drawable/plant"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/Humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="30dp"
+        android:text="Humidity"
+        android:textColor="@color/textColorDark"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/HumidityValue"
+        android:layout_width="120sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="60dp"
+        android:textColor="@color/textColorDark"
+        android:text="45%"
+        android:textSize="60sp"/>
+
 
 
     <TextView
@@ -23,7 +46,7 @@
 
     <TextView
         android:id="@+id/TempValue"
-        android:layout_width="wrap_content"
+        android:layout_width="120sp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_marginStart="58dp"
@@ -45,7 +68,7 @@
 
     <TextView
         android:id="@+id/MoistValue"
-        android:layout_width="wrap_content"
+        android:layout_width="120sp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/moisture"
         android:layout_alignTop="@+id/TempValue"
@@ -58,11 +81,10 @@
         android:id="@+id/suggestion"
         android:layout_width="337dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/TempValue"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_alignStart="@+id/temperature"
+        android:layout_centerVertical="true"
+        android:text="Suggested temperature : 25\u2103\n Suggested moisture : 70%"
         android:textColor="@color/textColorDark"
-        android:text="You can set temperature to 25\u2103 and moisture to 90%"
         android:textSize="25sp" />
 
 
@@ -71,9 +93,10 @@
         android:id="@+id/SwitchModeTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="320dp"
+        android:layout_marginLeft="310dp"
         android:layout_alignTop="@id/LabelControlTemp"
         />
+
 
     <TextView
         android:id="@+id/LabelControlTemp"
@@ -101,8 +124,7 @@
         android:layout_width="141dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/LabelControlTemp"
-        android:layout_toEndOf="@id/PromptControlTemp"
-        android:layout_marginStart="20dp"
+        android:layout_marginLeft="170dp"
         android:textSize="50sp"
         android:max="30"/>
 
@@ -111,7 +133,7 @@
         android:textColor="@color/textColorDark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/SwitchModeTemp"
+        android:layout_marginLeft="310dp"
         android:layout_alignTop="@id/TempSlider"
         android:text="0 mins"
         android:background="@color/lightBackground"
@@ -137,7 +159,7 @@
         android:id="@+id/SwitchModeWater"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="320dp"
+        android:layout_marginLeft="310dp"
         android:layout_alignTop="@id/LabelControlWater"
         />
 
@@ -153,20 +175,19 @@
 
     <SeekBar
         android:id="@+id/WaterSlider"
-        android:layout_width="136dp"
+        android:layout_width="141dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/LabelControlWater"
-        android:layout_marginStart="20dp"
-        android:layout_toEndOf="@+id/PromptControlTemp"
+        android:layout_marginLeft="170dp"
         android:textSize="50sp"
-        android:max="100"/>
+        android:max="99"/>
 
     <TextView
         android:id="@+id/SeekValueWater"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/textColorDark"
-        android:layout_alignEnd="@id/SwitchModeWater"
+        android:layout_marginLeft="310dp"
         android:layout_alignTop="@id/WaterSlider"
         android:text="0 secs"
         android:background="@color/lightBackground"
